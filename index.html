@@ -156,7 +156,7 @@
         let result = document.getElementById('result');
         if(message == eval(resultTask)) {
             document.body.style.backgroundColor = "green"
-            setTimeout(() => document.body.style.backgroundColor = "white", 400);
+            setTimeout(() => document.body.style.backgroundColor = "white", 600);
             counterTrue++;
             result.innerText = `Правильных ответов - ${counterTrue}, Неправильных ответов - ${counterFalse}`;
         } else {

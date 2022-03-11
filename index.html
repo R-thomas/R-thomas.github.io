@@ -7,13 +7,51 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        body{
+            height: 100vh;
+            display:flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+        }
+        form {
+            height: 50%;
+            display:flex;
+            flex-flow: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        input {
+            width: 30vw;
+        }
+        #submit {
+            height: 30px;
+            border-radius: 5px;
+            border-color: blue;
+            background-color: blue;
+            color: #fff;
+            font-size: 16px;
+        }
+        #answer {
+            height: 30px;
+            border-radius: 5px;
+        }
+        #label1 {
+            font-size: 40px;
+        }
+        #result {
+            font-size: 20px;
+        }
+    </style>
     
     <form action="" name="publish">
         <label id="label1" for="answer">Текст</label>
         <input type="number" id="answer" name="answer"
        min="0" max="100" autofocus>
-        <input type="submit" value="Ответить!">
+        <input type="submit" id="submit" value="Ответить!">
     </form>
+    <p id="result"></p>
     <script>
         let table = [
     "2*2",
@@ -108,16 +146,24 @@
   let resultTask = taskRun();
   changeLabel(resultTask.replace("/", ":"));
  
-  
+  let counterTrue = 0;
+  let counterFalse = 0;
 
 
     document.forms.publish.addEventListener("submit", function (event) {
         event.preventDefault();
-        var message = document.getElementById('answer').value;
+        let message = document.getElementById('answer').value;
+        let result = document.getElementById('result');
         if(message == eval(resultTask)) {
-            alert ('Правильно')
+            document.body.style.backgroundColor = "green"
+            setTimeout(() => document.body.style.backgroundColor = "white", 400);
+            counterTrue++;
+            result.innerText = `Правильных ответов - ${counterTrue}, Неправильных ответов - ${counterFalse}`;
         } else {
-            alert ('Неправильно!!!')
+            document.body.style.backgroundColor = "red";
+            counterFalse++;
+            result.innerText = `Правильных ответов - ${counterTrue}, Неправильных ответов - ${counterFalse}`;
+            return;
         }
         this.answer.value = "";
         this.answer.focus();

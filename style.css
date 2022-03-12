@@ -1,0 +1,54 @@
+body{
+    margin: 0;
+    height: 100vh;
+    display:flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+form {
+    height: 50%;
+    display:flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+}
+input {
+    width: 30vw;
+}
+#submitBtn {
+    height: 30px;
+    border-radius: 5px;
+    border-color: blue;
+    background-color: blue;
+    color: #fff;
+    font-size: 16px;
+}
+#answer {
+    height: 30px;
+    border-radius: 5px;
+}
+#label1 {
+    font-size: 40px;
+}
+#result {
+    font-size: 20px;
+}
+#demo {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 10px;
+    background: white;
+    color: red;
+}
+::-webkit-progress-bar {
+    background: white;
+}
+::-webkit-progress-value {
+    background: linear-gradient(to left, blue, red, cyan);
+}
+::-moz-progress-bar {
+    background: linear-gradient(to left, blue, red, cyan);
+}

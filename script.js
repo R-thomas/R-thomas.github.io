@@ -87,8 +87,10 @@ label1.innerHTML = resultTask;
 let resultTask = taskRun();
 changeLabel(resultTask.replace("/", ":"));
 
+let counterFalseExamples = 0;
 let counterTrue = 0;
 let counterFalse = 0;
+let arrayFalseExamples = {};
 
 
 document.forms.publish.addEventListener("submit", function (event) {
@@ -106,15 +108,21 @@ if(message == eval(resultTask)) {
       document.getElementById('answer').style.color = "black";
   }, 600);
   counterTrue++;
-  result.innerHTML = `Правильных ответов - ${counterTrue},<br/>Неправильных ответов - ${counterFalse}`;
+  result.innerHTML = `Правильных ответов - ${counterTrue}<br/>Неправильных ответов - ${counterFalse}<br/>Ошибочных примеров - ${counterFalseExamples}`;
 } else {
   timerSub();
   document.getElementById('answer').style.backgroundColor = "red";
   document.getElementById('answer').style.color = "white";
   counterFalse++;
+  arrayFalseExamples[resultTask] = 0;
+  let i = 0;
+  for (key in arrayFalseExamples) {
+    i++;
+  }
+  counterFalseExamples = i;
   this.answer.value = "";
   this.answer.focus();
-  result.innerHTML = `Правильных ответов - ${counterTrue},<br/> Неправильных ответов - ${counterFalse}`;
+  result.innerHTML = `Правильных ответов - ${counterTrue}<br/> Неправильных ответов - ${counterFalse}<br/>Ошибочных примеров - ${counterFalseExamples}`;
   return;
 }
 this.answer.value = "";

@@ -120,6 +120,7 @@ if(message == eval(resultTask)) {
     i++;
   }
   counterFalseExamples = i;
+  table.push(resultTask, resultTask, resultTask);
   this.answer.value = "";
   this.answer.focus();
   result.innerHTML = `Правильных ответов - ${counterTrue}<br/> Неправильных ответов - ${counterFalse}<br/>Ошибочных примеров - ${counterFalseExamples}`;

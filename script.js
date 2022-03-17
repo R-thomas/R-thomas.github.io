@@ -2,7 +2,7 @@ let table = [];
 for (let i = 2; i < 6; i++) {
   for (let j = 2; j <= 10; j++) {
     table.push(`${i}*${j}`);
-    table.push(`${i*j}/${j}`);
+    table.push(`${i*j}/${i}`);
   }
 }
 
@@ -52,6 +52,15 @@ if(message == eval(resultTask)) {
       document.getElementById('answer').style.color = "black";
   }, 600);
   counterTrue++;
+  if(counterTrue == 100) {
+    alert("У вас 100 правильных ответов! Поздравляю!");
+  }
+  if(counterTrue == 200) {
+    alert("У вас 200 правильных ответов! Поздравляю!");
+  }
+  if(counterTrue == 300) {
+    alert("У вас 300 правильных ответов! Поздравляю! Нужно сделать перерыв!");
+  }
   result.innerHTML = `Правильных ответов - ${counterTrue}<br/>Неправильных ответов - ${counterFalse}<br/>Ошибочных примеров - ${counterFalseExamples}`;
 } else {
   timerSub();
